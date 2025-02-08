@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:testapi/main_menu.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -85,9 +86,9 @@ class _FirstScreenState extends State<FirstScreen> {
 
   void _timer() {
     Timer(
-        Duration(seconds: 3),
+        Duration(seconds: 2),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SecondPage())));
+            context, MaterialPageRoute(builder: (context) => Main_Menu())));
   }
 
   void _showAlertDialog(BuildContext context, String title, String msg) {
@@ -121,28 +122,5 @@ class _FirstScreenState extends State<FirstScreen> {
             ],
           );
         });
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Second Page'),
-      ),
-      body: Center(
-        child: Text(
-          'This is the second page',
-          style: TextStyle(
-              fontSize: 20,
-              color: Colors.lightGreen,
-              fontFamily: 'ALike',
-              fontWeight: FontWeight.w500),
-        ),
-      ),
-    );
   }
 }
