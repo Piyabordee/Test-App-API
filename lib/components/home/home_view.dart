@@ -3,7 +3,10 @@ import 'package:iconly/iconly.dart';
 import 'package:testapi/components/home/view_h.dart';
 import 'package:testapi/components/home/view_v.dart';
 import 'package:testapi/components/constants/string_web.dart';
+import 'package:testapi/components/web_api/blacklist_api.dart';
 import 'package:testapi/components/web_api/cat_api.dart';
+import 'package:testapi/components/web_api/geo_location.dart';
+import 'package:testapi/components/web_api/weather_api.dart';
 import 'package:testapi/components/web_view/web_view.dart';
 
 class Home_View extends StatefulWidget {
@@ -284,12 +287,6 @@ class _Home_ViewState extends State<Home_View> {
                       ),
                     ),
                   ),
-                  // Container(
-                  //   color: Colors.blue,
-                  //   width: 150,
-                  //   height: 180,
-                  //   margin: EdgeInsets.all(8),
-                  // ), // กำหนดความกว้าง ความสูง และระยะห่าง
                 ],
               ),
             ),
@@ -379,41 +376,150 @@ class _Home_ViewState extends State<Home_View> {
                       ),
                     ),
                   ),
-                  Container(
-                    color: Colors.blue,
-                    width: double.infinity,
-                    height: 200,
-                    margin: EdgeInsets.all(8),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Geo_Location(), //เพื่อเรียกใช้งาน Geo_Location
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity, // กำหนดความกว้างเต็ม
+                      height: 200,
+                      margin: EdgeInsets.all(9),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withAlpha(150),
+                              offset: Offset(0, 4),
+                              blurRadius: 8)
+                        ],
+                      ),
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              "https://cdn2.thedogapi.com/images/s4h8tS2SU.jpg",
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "Geo_Location",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  backgroundColor: Colors.black.withAlpha(70)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  Container(
-                    color: Colors.amber,
-                    width: double.infinity,
-                    height: 200,
-                    margin: EdgeInsets.all(8),
+                  // Weather
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WeatherApi(), //เพื่อเรียกใช้งาน Geo_Location
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity, // กำหนดความกว้างเต็ม
+                      height: 200,
+                      margin: EdgeInsets.all(9),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withAlpha(150),
+                              offset: Offset(0, 4),
+                              blurRadius: 8)
+                        ],
+                      ),
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              "https://cdn2.thedogapi.com/images/1ky29d0rC.jpg",
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "Weather",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  backgroundColor: Colors.black.withAlpha(70)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  Container(
-                    color: Colors.green,
-                    width: double.infinity,
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                  ),
-                  Container(
-                    color: Colors.purple,
-                    width: double.infinity,
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                  ),
-                  Container(
-                    color: Colors.orange,
-                    width: double.infinity,
-                    height: 200,
-                    margin: EdgeInsets.all(8),
-                  ),
-                  Container(
-                    color: Colors.pink,
-                    width: double.infinity,
-                    height: 200,
-                    margin: EdgeInsets.all(8),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Blacklist_API(), //เพื่อเรียกใช้งาน Geo_Location
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity, // กำหนดความกว้างเต็ม
+                      height: 200,
+                      margin: EdgeInsets.all(9),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withAlpha(150),
+                              offset: Offset(0, 4),
+                              blurRadius: 8)
+                        ],
+                      ),
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              "https://cdn2.thedogapi.com/images/ZRQ0TYzz6.jpg",
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "API ตรวจสอบรายชื่อ black list",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  backgroundColor: Colors.black.withAlpha(70)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
